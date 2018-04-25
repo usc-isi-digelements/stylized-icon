@@ -1,0 +1,479 @@
+<!--
+Copyright 2018 Next Century Corporation
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../fontawesome-iconset/fa-all.html">
+<link rel="import" href="../iron-icon/iron-icon.html">
+<link rel="import" href="../iron-icons/iron-icons.html">
+<link rel="import" href="../paper-styles/color.html">
+
+<!--
+A Polymer Element showing a stylized icon.  Use `icon-button` if you need click/tap behavior.
+
+### Example
+```html
+<stylized-icon
+  icon="icons:polymer"
+  style-class="style-class"
+  title-tooltip="Text">
+</stylized-icon>
+```
+
+### Styling
+
+`<stylized-icon>` provides the following custom properties and mixins for styling:
+
+Custom property                  | Description                                             | Default
+---------------------------------|---------------------------------------------------------|--------
+`--stylized-icon-color`          | The color for the icon button.                          | --paper-grey-600
+`--stylized-icon-mixin`          | The custom style mixin for the icon button.             | none
+`--stylized-icon-active-color`   | The color for the icon button if active.                | --paper-grey-900
+`--stylized-icon-active-mixin`   | The custom style mixin for the icon button if active.   | none
+`--stylized-icon-disabled-color` | The color for the icon button if disabled.              | --paper-grey-300
+`--stylized-icon-disabled-mixin` | The custom style mixin for the icon button if disabled. | none
+
+The `styleClass` property has the following preconfigured options:
+
+- amber
+- black
+- blue
+- blue-grey
+- brown
+- cyan
+- deep-orange
+- deep-purple
+- green
+- grey
+- indigo
+- light-blue
+- light-green
+- lime
+- orange
+- pink
+- purple
+- red
+- teal
+- white
+- yellow
+
+@demo demo/index.html
+-->
+
+<dom-module id="stylized-icon">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+
+      iron-icon {
+        color: var(--stylized-icon-color, var(--paper-grey-600));
+        display: flex;
+        font-weight: 500;
+        height: 20px;
+        width: 20px;
+        line-height: 20px;
+        min-height: 20px;
+        min-width: 20px;
+        padding: 0;
+        @apply --stylized-icon-mixin;
+      }
+
+      iron-icon.active {
+        color: var(--stylized-icon-active-color, var(--paper-grey-900));
+        @apply --stylized-icon-active-mixin;
+      }
+
+      iron-icon.bigger {
+        height: 30px;
+        width: 30px;
+        line-height: 30px;
+        min-height: 30px;
+        min-width: 30px;
+      }
+
+      iron-icon.padded {
+        padding: 5px;
+      }
+
+      iron-icon.disabled {
+        color: var(--stylized-icon-disabled-color, var(--paper-grey-300));
+        opacity: 0.5;
+        @apply --stylized-icon-disabled-mixin;
+      }
+
+      iron-icon.amber {
+        color: var(--paper-amber-600);
+      }
+
+      iron-icon.black {
+        color: #111;
+      }
+
+      iron-icon.blue {
+        color: var(--paper-blue-600);
+      }
+
+      iron-icon.blue-grey {
+        color: var(--paper-blue-grey-600);
+      }
+
+      iron-icon.brown {
+        color: var(--paper-brown-600);
+      }
+
+      iron-icon.cyan {
+        color: var(--paper-cyan-600);
+      }
+
+      iron-icon.deep-orange {
+        color: var(--paper-deep-orange-600);
+      }
+
+      iron-icon.deep-purple {
+        color: var(--paper-deep-purple-600);
+      }
+
+      iron-icon.green {
+        color: var(--paper-green-600);
+      }
+
+      iron-icon.grey {
+        color: var(--paper-grey-600);
+      }
+
+      iron-icon.indigo {
+        color: var(--paper-indigo-600);
+      }
+
+      iron-icon.light-blue {
+        color: var(--paper-light-blue-600);
+      }
+
+      iron-icon.light-green {
+        color: var(--paper-light-green-600);
+      }
+
+      iron-icon.lime {
+        color: var(--paper-lime-600);
+      }
+
+      iron-icon.orange {
+        color: var(--paper-orange-600);
+      }
+
+      iron-icon.pink {
+        color: var(--paper-pink-600);
+      }
+
+      iron-icon.purple {
+        color: var(--paper-purple-600);
+      }
+
+      iron-icon.red {
+        color: var(--paper-red-600);
+      }
+
+      iron-icon.teal {
+        color: var(--paper-teal-600);
+      }
+
+      iron-icon.white {
+        color: #fff;
+      }
+
+      iron-icon.yellow {
+        color: var(--paper-yellow-600);
+      }
+
+      iron-icon.amber.active {
+        color: var(--paper-amber-900);
+      }
+
+      iron-icon.blue.active {
+        color: var(--paper-blue-900);
+      }
+
+      iron-icon.blue-grey.active {
+        color: var(--paper-blue-grey-900);
+      }
+
+      iron-icon.brown.active {
+        color: var(--paper-brown-900);
+      }
+
+      iron-icon.cyan.active {
+        color: var(--paper-cyan-900);
+      }
+
+      iron-icon.deep-orange.active {
+        color: var(--paper-deep-orange-900);
+      }
+
+      iron-icon.deep-purple.active {
+        color: var(--paper-deep-purple-900);
+      }
+
+      iron-icon.green.active {
+        color: var(--paper-green-900);
+      }
+
+      iron-icon.grey.active {
+        color: var(--paper-grey-900);
+      }
+
+      iron-icon.indigo.active {
+        color: var(--paper-indigo-900);
+      }
+
+      iron-icon.light-blue.active {
+        color: var(--paper-light-blue-900);
+      }
+
+      iron-icon.light-green.active {
+        color: var(--paper-light-green-900);
+      }
+
+      iron-icon.lime.active {
+        color: var(--paper-lime-900);
+      }
+
+      iron-icon.orange.active {
+        color: var(--paper-orange-900);
+      }
+
+      iron-icon.pink.active {
+        color: var(--paper-pink-900);
+      }
+
+      iron-icon.purple.active {
+        color: var(--paper-purple-900);
+      }
+
+      iron-icon.red.active {
+        color: var(--paper-red-900);
+      }
+
+      iron-icon.teal.active {
+        color: var(--paper-teal-900);
+      }
+
+      iron-icon.yellow.active {
+        color: var(--paper-yellow-900);
+      }
+
+      iron-icon.amber.disabled {
+        color: var(--paper-amber-300);
+      }
+
+      iron-icon.blue.disabled {
+        color: var(--paper-blue-300);
+      }
+
+      iron-icon.blue-grey.disabled {
+        color: var(--paper-blue-grey-300);
+      }
+
+      iron-icon.brown.disabled {
+        color: var(--paper-brown-300);
+      }
+
+      iron-icon.cyan.disabled {
+        color: var(--paper-cyan-300);
+      }
+
+      iron-icon.deep-orange.disabled {
+        color: var(--paper-deep-orange-300);
+      }
+
+      iron-icon.deep-purple.disabled {
+        color: var(--paper-deep-purple-300);
+      }
+
+      iron-icon.green.disabled {
+        color: var(--paper-green-300);
+      }
+
+      iron-icon.grey.disabled {
+        color: var(--paper-grey-300);
+      }
+
+      iron-icon.indigo.disabled {
+        color: var(--paper-indigo-300);
+      }
+
+      iron-icon.light-blue.disabled {
+        color: var(--paper-light-blue-300);
+      }
+
+      iron-icon.light-green.disabled {
+        color: var(--paper-light-green-300);
+      }
+
+      iron-icon.lime.disabled {
+        color: var(--paper-lime-300);
+      }
+
+      iron-icon.orange.disabled {
+        color: var(--paper-orange-300);
+      }
+
+      iron-icon.pink.disabled {
+        color: var(--paper-pink-300);
+      }
+
+      iron-icon.purple.disabled {
+        color: var(--paper-purple-300);
+      }
+
+      iron-icon.red.disabled {
+        color: var(--paper-red-300);
+      }
+
+      iron-icon.teal.disabled {
+        color: var(--paper-teal-300);
+      }
+
+      iron-icon.yellow.disabled {
+        color: var(--paper-yellow-300);
+      }
+    </style>
+
+    <iron-icon
+      class$="[[_getStyleClass(active, bigger, disabled, padded, styleClass)]]"
+      icon="[[icon]]"
+      title="[[titleTooltip]]">
+    </iron-icon>
+  </template>
+
+  <script>
+  (function() {
+    'use strict';
+
+    Polymer({
+      is: 'stylized-icon',
+
+      properties: {
+        /**
+         * (Optional)
+         *
+         * Whether the icon is active.
+         *
+         * @type {Boolean}
+         * @default false
+         */
+        active: {
+          type: Boolean,
+          value: false
+        },
+
+        /**
+         * (Optional)
+         *
+         * Whether the icon is 30px rather than 20px.
+         *
+         * @type {Boolean}
+         * @default false
+         */
+        bigger: {
+          type: Boolean,
+          value: false
+        },
+
+        /**
+         * (Optional)
+         *
+         * Whether the icon is disabled.
+         *
+         * @type {Boolean}
+         * @default false
+         */
+        disabled: {
+          type: Boolean,
+          value: false
+        },
+
+        /**
+         * (Optional)
+         *
+         * The icon.
+         *
+         * @type {String}
+         * @default ''
+         */
+        icon: {
+          type: String,
+          value: ''
+        },
+
+        /**
+         * (Optional)
+         *
+         * Whether the icon is padded 5px rather than 0px.
+         *
+         * @type {Boolean}
+         * @default false
+         */
+        padded: {
+          type: Boolean,
+          value: false
+        },
+
+        /**
+         * (Optional)
+         *
+         * The style class.
+         *
+         * @type {String}
+         * @default ''
+         */
+        styleClass: {
+          type: String,
+          value: ''
+        },
+
+        /**
+         * (Optional)
+         *
+         * The title tooltip.
+         *
+         * @type {String}
+         * @default ''
+         */
+        titleTooltip: {
+          type: String,
+          value: ''
+        }
+      },
+
+      /**
+       * Returns the style class for the icon.
+       *
+       * @param {Boolean} active
+       * @param {Boolean} bigger
+       * @param {Boolean} disabled
+       * @param {Boolean} padded
+       * @param {String} styleClass
+       * @return {String}
+       * @private
+       */
+      _getStyleClass: function(active, bigger, disabled, padded, styleClass) {
+        return (active ? 'active ' : '') + (bigger ? 'bigger ' : '') + (disabled ? 'disabled ' : '') + (padded ? 'padded ' : '') + styleClass;
+      }
+    });
+  })();
+  </script>
+</dom-module>
