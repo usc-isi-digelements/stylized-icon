@@ -360,120 +360,129 @@ The `styleClass` property has the following preconfigured options:
   </template>
 
   <script>
-  (function() {
-    'use strict';
+  class StylizedIcon extends Polymer.Element {
+  // returns the name of the component
+  static get is() {
+    return 'stylized-icon';
+  }
 
-    Polymer({
-      is: 'stylized-icon',
-
-      properties: {
-        /**
-         * (Optional)
-         *
-         * Whether the icon is active.
-         *
-         * @type {Boolean}
-         * @default false
-         */
-        active: {
-          type: Boolean,
-          value: false
-        },
-
-        /**
-         * (Optional)
-         *
-         * Whether the icon is 30px rather than 20px.
-         *
-         * @type {Boolean}
-         * @default false
-         */
-        bigger: {
-          type: Boolean,
-          value: false
-        },
-
-        /**
-         * (Optional)
-         *
-         * Whether the icon is disabled.
-         *
-         * @type {Boolean}
-         * @default false
-         */
-        disabled: {
-          type: Boolean,
-          value: false
-        },
-
-        /**
-         * (Optional)
-         *
-         * The icon.
-         *
-         * @type {String}
-         * @default ''
-         */
-        icon: {
-          type: String,
-          value: ''
-        },
-
-        /**
-         * (Optional)
-         *
-         * Whether the icon is padded 5px rather than 0px.
-         *
-         * @type {Boolean}
-         * @default false
-         */
-        padded: {
-          type: Boolean,
-          value: false
-        },
-
-        /**
-         * (Optional)
-         *
-         * The style class.
-         *
-         * @type {String}
-         * @default ''
-         */
-        styleClass: {
-          type: String,
-          value: ''
-        },
-
-        /**
-         * (Optional)
-         *
-         * The title tooltip.
-         *
-         * @type {String}
-         * @default ''
-         */
-        titleTooltip: {
-          type: String,
-          value: ''
-        }
+  // defines the component's properties
+  static get properties() {
+    return {
+      /**
+       * (Optional)
+       *
+       * Whether the icon is active.
+       *
+       * @type {Boolean}
+       * @default false
+       */
+      active: {
+        type: Boolean,
+        value: false
       },
 
       /**
-       * Returns the style class for the icon.
+       * (Optional)
        *
-       * @param {Boolean} active
-       * @param {Boolean} bigger
-       * @param {Boolean} disabled
-       * @param {Boolean} padded
-       * @param {String} styleClass
-       * @return {String}
-       * @private
+       * Whether the icon is 30px rather than 20px.
+       *
+       * @type {Boolean}
+       * @default false
        */
-      _getStyleClass: function(active, bigger, disabled, padded, styleClass) {
-        return (active ? 'active ' : '') + (bigger ? 'bigger ' : '') + (disabled ? 'disabled ' : '') + (padded ? 'padded ' : '') + styleClass;
+      bigger: {
+        type: Boolean,
+        value: false
+      },
+
+      /**
+       * (Optional)
+       *
+       * Whether the icon is disabled.
+       *
+       * @type {Boolean}
+       * @default false
+       */
+      disabled: {
+        type: Boolean,
+        value: false
+      },
+
+      /**
+       * (Optional)
+       *
+       * The icon.
+       *
+       * @type {String}
+       * @default ''
+       */
+      icon: {
+        type: String,
+        value: ''
+      },
+
+      /**
+       * (Optional)
+       *
+       * Whether the icon is padded 5px rather than 0px.
+       *
+       * @type {Boolean}
+       * @default false
+       */
+      padded: {
+        type: Boolean,
+        value: false
+      },
+
+      /**
+       * (Optional)
+       *
+       * The style class.
+       *
+       * @type {String}
+       * @default ''
+       */
+      styleClass: {
+        type: String,
+        value: ''
+      },
+
+      /**
+       * (Optional)
+       *
+       * The title tooltip.
+       *
+       * @type {String}
+       * @default ''
+       */
+      titleTooltip: {
+        type: String,
+        value: ''
       }
-    });
-  })();
-  </script>
+    };
+  }
+
+  /**
+   * Returns the style class for the icon.
+   *
+   * @param {Boolean} active
+   * @param {Boolean} bigger
+   * @param {Boolean} disabled
+   * @param {Boolean} padded
+   * @param {String} styleClass
+   * @return {String}
+   * @private
+   */
+  _getStyleClass(active, bigger, disabled, padded, styleClass) {
+    return (
+      (active ? 'active ' : '') +
+      (bigger ? 'bigger ' : '') +
+      (disabled ? 'disabled ' : '') +
+      (padded ? 'padded ' : '') +
+      styleClass
+    );
+  }
+}
+customElements.define(StylizedIcon.is, StylizedIcon);
+</script>
 </dom-module>

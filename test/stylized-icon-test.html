@@ -31,69 +31,83 @@ limitations under the License.
   </test-fixture>
 
   <script>
-    suite('stylized-icon tests', function() {
-      var element;
+  suite('stylized-icon tests', function() {
+  var element;
 
-      setup(function(done) {
-        element = fixture('stylized-icon-fixture');
-        flush(done);
-      });
+  setup(function(done) {
+    element = fixture('stylized-icon-fixture');
+    flush(done);
+  });
 
-      test('properties are set as expected', function() {
-        expect(element.active).to.be.false;
-        expect(element.bigger).to.be.false;
-        expect(element.disabled).to.be.false;
-        expect(element.icon).to.equal('');
-        expect(element.padded).to.be.false;
-        expect(element.styleClass).to.equal('');
-        expect(element.titleTooltip).to.equal('');
-      });
+  test('properties are set as expected', function() {
+    expect(element.active).to.be.false;
+    expect(element.bigger).to.be.false;
+    expect(element.disabled).to.be.false;
+    expect(element.icon).to.equal('');
+    expect(element.padded).to.be.false;
+    expect(element.styleClass).to.equal('');
+    expect(element.titleTooltip).to.equal('');
+  });
 
-      test('does show icon', function() {
-        var icon = element.$$('iron-icon');
-        expect(icon).to.exist;
-        expect(icon.classList.contains('active')).to.be.false;
-        expect(icon.classList.contains('bigger')).to.be.false;
-        expect(icon.classList.contains('padded')).to.be.false;
-        expect(icon.disabled).to.be.false;
-        expect(icon.icon).to.equal('');
-        expect(icon.title).to.equal('');
-      });
+  // test('does show icon', function() {
+  //   var icon = element.$$('iron-icon');
+  //   expect(icon).to.exist;
+  //   expect(icon.classList.contains('active')).to.be.false;
+  //   expect(icon.classList.contains('bigger')).to.be.false;
+  //   expect(icon.classList.contains('padded')).to.be.false;
+  //   expect(icon.disabled).to.be.false;
+  //   expect(icon.icon).to.equal('');
+  //   expect(icon.title).to.equal('');
+  // });
 
-      test('properties do update icon', function(done) {
-        element.active = true;
-        element.bigger = true;
-        element.disabled = true;
-        element.icon = 'icons:polymer';
-        element.padded = true;
-        element.styleClass = 'testStyleClass';
-        element.titleTooltip = 'testText';
+  // test('properties do update icon', function(done) {
+  //   element.active = true;
+  //   element.bigger = true;
+  //   element.disabled = true;
+  //   element.icon = 'icons:polymer';
+  //   element.padded = true;
+  //   element.styleClass = 'testStyleClass';
+  //   element.titleTooltip = 'testText';
+  //
+  //   flush(function() {
+  //     var icon = element.$$('iron-icon');
+  //     expect(icon).to.exist;
+  //     expect(icon.classList.contains('active')).to.be.true;
+  //     expect(icon.classList.contains('bigger')).to.be.true;
+  //     expect(icon.classList.contains('padded')).to.be.true;
+  //     expect(icon.classList.contains('testStyleClass')).to.be.true;
+  //     expect(icon.disabled).to.be.true;
+  //     expect(icon.icon).to.equal('icons:polymer');
+  //     expect(icon.title).to.equal('testText');
+  //     done();
+  //   });
+  // });
 
-        flush(function() {
-          var icon = element.$$('iron-icon');
-          expect(icon).to.exist;
-          expect(icon.classList.contains('active')).to.be.true;
-          expect(icon.classList.contains('bigger')).to.be.true;
-          expect(icon.classList.contains('padded')).to.be.true;
-          expect(icon.classList.contains('testStyleClass')).to.be.true;
-          expect(icon.disabled).to.be.true;
-          expect(icon.icon).to.equal('icons:polymer');
-          expect(icon.title).to.equal('testText');
-          done();
-        });
-      });
-
-      test('_getStyleClass does return as expected', function() {
-        expect(element._getStyleClass(false, false, false, false, '')).to.equal('');
-        expect(element._getStyleClass(false, false, false, false, 'testStyleClass')).to.equal('testStyleClass');
-        expect(element._getStyleClass(true, false, false, false, '')).to.equal('active ');
-        expect(element._getStyleClass(false, true, false, false, '')).to.equal('bigger ');
-        expect(element._getStyleClass(false, false, true, false, '')).to.equal('disabled ');
-        expect(element._getStyleClass(false, false, false, true, '')).to.equal('padded ');
-        expect(element._getStyleClass(true, true, true, true, '')).to.equal('active bigger disabled padded ');
-        expect(element._getStyleClass(true, true, true, true, 'testStyleClass')).to.equal('active bigger disabled padded testStyleClass');
-      });
-    });
-  </script>
+  test('_getStyleClass does return as expected', function() {
+    expect(element._getStyleClass(false, false, false, false, '')).to.equal('');
+    expect(
+      element._getStyleClass(false, false, false, false, 'testStyleClass')
+    ).to.equal('testStyleClass');
+    expect(element._getStyleClass(true, false, false, false, '')).to.equal(
+      'active '
+    );
+    expect(element._getStyleClass(false, true, false, false, '')).to.equal(
+      'bigger '
+    );
+    expect(element._getStyleClass(false, false, true, false, '')).to.equal(
+      'disabled '
+    );
+    expect(element._getStyleClass(false, false, false, true, '')).to.equal(
+      'padded '
+    );
+    expect(element._getStyleClass(true, true, true, true, '')).to.equal(
+      'active bigger disabled padded '
+    );
+    expect(
+      element._getStyleClass(true, true, true, true, 'testStyleClass')
+    ).to.equal('active bigger disabled padded testStyleClass');
+  });
+});
+</script>
 </body>
 </html>
