@@ -6,7 +6,7 @@
   "license": "Apache-2.0",
   "keywords": ["web-component", "polymer"],
   "main": "stylized-icon.html",
-  "homepage": "https://github.com/DigElements/stylized-icon/",
+  "homepage": "https://github.com/usc-isi-digelements/stylized-icon/",
   "ignore": ["/.*", "/test/"],
   "dependencies": {
     "polymer": "Polymer/polymer#^2.0.2",
