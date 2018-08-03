@@ -1,7 +1,7 @@
 {
   "name": "stylized-icon",
   "description": "A Polymer Element showing a stylized icon.",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "authors": ["Next Century Corporation"],
   "license": "Apache-2.0",
   "keywords": ["web-component", "polymer"],
@@ -10,7 +10,8 @@
   "ignore": ["/.*", "/test/"],
   "dependencies": {
     "polymer": "Polymer/polymer#^2.0.2",
-    "fontawesome-iconset": "../fontawesome-iconset",
+    "fontawesome-iconset":
+      "NextCenturyCorporation/polymer-fontawesome-iconset#d2afc78a06295aacfd8a434e0dfa54164715529e",
     "iron-icon": "PolymerElements/iron-icon#^2.0.0",
     "iron-icons": "PolymerElements/iron-icons#^2.0.0",
     "paper-styles": "PolymerElements/paper-styles#^2.0.0",
